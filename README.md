@@ -11,8 +11,6 @@
 
 ---
 
-⠀
-
 ## 🧠 Key Contributions
 
 - **Transformer-Free Design**: SV-Mixer replaces the Transformer with three MLP-based modules:
@@ -25,8 +23,6 @@
 - **Distillation Compatibility**: Effectively distilled from large SSL models (WavLM, HuBERT, wav2vec 2.0), even though SV-Mixer is structurally dissimilar.
 
 ---
-
-⠀
 
 ## 🏗️ Architecture
 
@@ -45,8 +41,6 @@ This sequential flow enables strong generalization under compression.
 
 ---
 
-⠀
-
 ## 📊 Experimental Results
 
 | Model        | Params/Layer | GMACs/Layer | Vox1-O EER | VoxSRC23 EER |
@@ -61,8 +55,6 @@ SV-Mixer also outperforms:
 - ConvMixer (by 11.6%)
 
 ---
-
-⠀
 
 ## ⚙️ Setup (Optional)
 
@@ -100,8 +92,6 @@ pip install -r assets/setup/requirements.txt
 pip install -r assets/setup/cleaned_requirements.txt
 ```
 
-⠀
-
 ## 🔧 Usage
 
 This project supports three typical use cases:
@@ -125,20 +115,16 @@ This mode processes all `.wav` files in a `{target_directory}`, extracts speaker
 
 ➝ Go to [`📁experiments/inference/`](./experiments/inference)
 
-### ▶️ How to Run (Common to All Modes)
+### ▶ How to Run (Common to All Modes)
 
-1. Modify [`arguments.py`](./experiments/...) in the corresponding directory — update only the `FIXME` fields to match your environment (e.g., data paths, checkpoint files).
+1. Open the `arguments.py` file in the selected mode's directory.
+→ Edit only the `FIXME` fields to match your environment (e.g., dataset paths, checkpoint locations).
+
 2. Run the entry script:
 
 ```bash
 python main.py
-
-```bash
-git clone https://github.com/your-username/sv-mixer.git
-cd sv-mixer
 ```
-
-⠀
 
 ## 📎 Citation
 
@@ -151,8 +137,6 @@ cd sv-mixer
   note      = {Under Review}
 }
 ```
-
-⠀
 
 ## 🛡️ License
 
