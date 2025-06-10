@@ -1,0 +1,1 @@
+sudo docker build -t env202408 {PATH_Dockerfile}

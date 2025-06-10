@@ -1,0 +1,30 @@
+apex @ file:///opt/pytorch/apex
+einops==0.8.0
+jupyter-tensorboard @ git+https://github.com/cliffwoolley/jupyter_tensorboard.git@ffa7e26138b82549453306e06b535a9ac36db17a
+librosa==0.10.1
+lightning==2.5.1
+lightning-thunder==0.2.0.dev0
+lightning-utilities==0.11.2
+matplotlib==3.9.0
+matplotlib-inline==0.1.7
+numpy==1.24.4
+nvidia-cudnn-frontend @ file:///opt/pytorch/lightning-thunder/tmp/cudnn_frontend
+onnx @ file:///opt/pytorch/pytorch/third_party/onnx
+pandas @ file:///rapids/pandas-2.2.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl#sha256=c38ce92cb22a4bea4e3929429aa1067a454dcc9c335799af93ba9be21b6beb51
+pytorch-lightning==2.5.1
+pytorch-quantization==2.1.2
+pytorch-triton @ file:///tmp/dist/pytorch_triton-3.0.0%2B989adb9a2-cp310-cp310-linux_x86_64.whl#sha256=1008f1caa423f84898fde2602fb10f258db5e3f75de2596e518f5c5769a536af
+PyYAML==6.0.1
+scikit-learn==1.5.0
+scipy @ file:///rapids/scipy-1.13.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl#sha256=f26264b282b9da0952a024ae34710c2aff7d27480ee91a2e82b7b7073c24722f
+soundfile==0.12.1
+tensorboard==2.9.0
+tensorboard-data-server==0.6.1
+tensorboard-plugin-wit==1.8.1
+torch==2.4.0
+torch-tensorrt @ file:///opt/pytorch/torch_tensorrt/dist/torch_tensorrt-2.4.0a0-cp310-cp310-linux_x86_64.whl#sha256=786064dc6edbf9aacf6984a92c887e483a57bf30c201aee95d6a8d388f23f27b
+torchaudio==2.4.0
+torchmetrics==1.7.0
+torchvision==0.19.0
+tqdm==4.66.4
+transformers==4.45.0
