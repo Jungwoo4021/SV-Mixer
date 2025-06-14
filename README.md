@@ -100,20 +100,20 @@ This project supports three typical use cases:
 
 Train a SV-Mixer model from scratch using WavLM knowledge distillation, and evaluate it on VoxCeleb1-O datasets. 
 
-➝ Go to [`📁experiments/train_eval/`](./experiments/train_eval)
+➝ Go to [`📁experiments/train_eval/`](./experiments/train_eval/README.md)
 
 ### Option 2: In-Depth Evaluation (No Training)
 
 Run detailed evaluations on multiple datasets (VoxCeleb-Hard, VC-Mix, VOiCES, ...) using a **pretrained model**.
 
-➝ Go to [`📁experiments/eval_only/`](./experiments/eval_only)
+➝ Go to [`📁experiments/eval_only/`](./experiments/eval_only/README.md)
 
 ### Option 3: Inference-Only Mode (Using Only Speaker Embeddings)
 
 Use this option if you only need a **pretrained speaker verification model** for downstream tasks or further research — no training or evaluation setup required.  
 This mode processes all `.wav` files in a `{target_directory}`, extracts speaker embeddings using the pretrained model, and saves them with matching filenames.
 
-➝ Go to [`📁experiments/inference/`](./experiments/inference)
+➝ Go to [`📁experiments/inference/`](./experiments/inference/README.md)
 
 ### ▶ How to Run (Common to All Modes)
 
