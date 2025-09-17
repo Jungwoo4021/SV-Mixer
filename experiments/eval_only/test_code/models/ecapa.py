@@ -5,7 +5,7 @@ from typing import Tuple
 from transformers import WavLMModel
 
 from .modules import Bottle2neck
-from data_augmentation import GaussianNoiseAug
+from ..data_augmentation import GaussianNoiseAug
 
 class ECAPA_TDNN(nn.Module):
     def __init__(
