@@ -51,7 +51,7 @@ def small_classifier(pretrained=False, **kwargs):
 def large_classifier(pretrained=False, **kwargs):
     from experiments.eval_only.test_code.models.ecapa import ECAPA_TDNN
 
-    model = ECAPA_TDNN(5, 1024, 512, 192)
+    model = ECAPA_TDNN(17, 1024, 512, 192)
 
     if pretrained:
         # 사전 학습된 가중치를 불러오기 (예: 릴리스에 올려둔 파일에서 다운로드)
