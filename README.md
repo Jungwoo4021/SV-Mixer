@@ -1,9 +1,22 @@
+[![Torch Hub](https://img.shields.io/badge/Supported-Torch%20Hub-orange?logo=pytorch)](https://colab.research.google.com/drive/1_zGof1NGM5WgZ5sJtQfsy1D7rKq9RwxR?usp=sharing)
+
 # SV-Mixer: MLP-based Transformer Alternative Architecture for Self-Supervised Model Compression in Speaker Verification
 
 > [📄 Paper: *SV-Mixer: Replacing the Transformer Encoder with Lightweight MLPs for Self-Supervised Model Compression in Speaker Verification*](./assets/paper.pdf)  
-> 📅 Conference: IEEE ASRU 2025 (Under Review)
+> 📅 Conference: IEEE ASRU 2025 (accepted)  
+> 🚀 **Now available on [PyTorch Hub](https://colab.research.google.com/drive/1_zGof1NGM5WgZ5sJtQfsy1D7rKq9RwxR?usp=sharing)!**  
+> (Load pretrained **SV-Mixer** models in just one line of code)
 
 ---
+
+## 🚀 One-line Usage via Torch Hub
+
+```python
+sv_mixer = torch.hub.load("Jungwoo4021/SV-Mixer", "large_svmixer", pretrained=True).eval()
+classifier = torch.hub.load("Jungwoo4021/SV-Mixer", "large_classifier", pretrained=True).eval()
+hidden_states = sv_mixer(input_wav)
+embedding = classifier(hidden_states)
+```
 
 ## 🔍 Overview
 
@@ -100,31 +113,23 @@ This project supports three typical use cases:
 
 Train a SV-Mixer model from scratch using WavLM knowledge distillation, and evaluate it on VoxCeleb1-O datasets. 
 
-➝ Go to [`📁experiments/train_eval/`](./experiments/train_eval/README.md)
+➝ Go to [`📁experiments/train`](./experiments/train/README.md)
 
 ### Option 2: In-Depth Evaluation (No Training)
 
 Run detailed evaluations on multiple datasets (VoxCeleb-Hard, VC-Mix, VOiCES, ...) using a **pretrained model**.
 
-➝ Go to [`📁experiments/eval_only/`](./experiments/eval_only/README.md)
+➝ Go to [`📁experiments/eval_only`](./experiments/eval_only/README.md)
 
-### Option 3: Inference-Only Mode (Using Only Speaker Embeddings)
+### Option 3: Inference-Only Mode (Using Only Speaker Embeddings) colab↗
 
-Use this option if you only need a **pretrained speaker verification model** for downstream tasks or further research — no training or evaluation setup required.  
-This mode processes all `.wav` files in a `{target_directory}`, extracts speaker embeddings using the pretrained model, and saves them with matching filenames.
+Use this option if you only need a **pretrained speaker verification model** for quick testing or downstream tasks — no training or evaluation setup required. You can directly load a pretrained SV-Mixer model with a single line:
 
-➝ Go to [`📁experiments/inference/`](./experiments/inference/README.md)
-
-### ▶ How to Run (Common to All Modes)
-
-1. Open the `arguments.py` file in the selected mode's directory.
-→ Edit only the `FIXME` fields to match your environment (e.g., dataset paths, checkpoint locations).
-
-2. Run the entry script:
-
-```bash
-python main.py
+```python
+sv_mixer = torch.hub.load("Jungwoo4021/SV-Mixer", "small_svmixer", pretrained=True).eval()
 ```
+
+➝ Go to [`📁experiments/inference`](./experiments/inference/README.md)
 
 ## 📎 Citation
 

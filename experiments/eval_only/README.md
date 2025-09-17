@@ -39,7 +39,7 @@ Two pretrained SV-Mixer variants are provided:
 2. **Edit arguments**  
    Open [`test_code/arguments.py`](./test_code/arguments.py) and update the following fields:
 
-   - `trial_file`: path to the downloaded evaluation trial file (see [📂 Trial Files](https://github.com/Jungwoo4021/experimental-resources/tree/main/test_trials)
+   - `trial_file`: path to the downloaded evaluation trial file (see [📂 Trial Files](https://github.com/Jungwoo4021/experimental-resources/tree/main/test_trials))
      - vox2_testO_trials.txt  
      - vox2_testE_trials.txt  
      - vox2_testH_trials.txt  

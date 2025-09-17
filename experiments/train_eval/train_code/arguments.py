@@ -4,16 +4,17 @@ import itertools
 def get_args():
     args = {
         # expeirment info
-        'project'               : 'IRLAB/LightweightStudent2025',
+        'project'               : 'SVMixer',
         'name'                  : 'train_vox2_17layer',
-        'tags'                  : ['Propposed'],
+        'tags'                  : ['release'],
         'description'           : '',
         'result'                : '/results', # final destination: result + project + name
         'neptune_token'         : '',
         'seed'                  : 4221,
 
+        # FIXME
         # dataset path
-        'path_vox_train'       : '/data/list/vox2_train_samples.txt',
+        'path_vox_train'        : '/data/list/vox2_train_samples.txt',
         'path_vox_O_trials'     : '/data/list/vox2_testO_trials.txt',
         'path_musan'            : '/data/list/musan.txt',
         'path_rir'              : '/data/list/rir_noises.txt',
