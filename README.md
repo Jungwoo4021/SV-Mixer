@@ -1,23 +1,23 @@
 [![Torch Hub](https://img.shields.io/badge/Supported-Torch%20Hub-orange?logo=pytorch)](https://colab.research.google.com/drive/1_zGof1NGM5WgZ5sJtQfsy1D7rKq9RwxR?usp=sharing)
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1_zGof1NGM5WgZ5sJtQfsy1D7rKq9RwxR?usp=sharing)
+![PyTorch Lightning](https://img.shields.io/badge/Powered%20by-PyTorch%20Lightning-792ee5?logo=pytorch-lightning)
 
 # SV-Mixer: MLP-based Transformer Alternative Architecture for Self-Supervised Model Compression in Speaker Verification
 
 > [📄 Paper (PDF)↗](./assets/paper.pdf) | 📅 Conference: IEEE ASRU 2025 (accepted)  
-> 🚀 **Now available on [PyTorch Hub](https://colab.research.google.com/drive/1_zGof1NGM5WgZ5sJtQfsy1D7rKq9RwxR?usp=sharing)!**  
-> (Load pretrained **SV-Mixer** models in just one line of code)
-
+> 🚀 Now available on **PyTorch Hub**!  
+> ⚡ Built with **PyTorch Lightning**
 ---
 
-## 🔥 Quick Start
+## 🔥 Quick Start (One Line Usage, No Extra Install)
 
 Load a pretrained SV-Mixer model in **one line**:
 
 ```python
 import torch
 model = torch.hub.load("Jungwoo4021/SV-Mixer", "large", pretrained=True)
-# Input: torch.Tensor(batch, 48,000) (16khz 3second waveform)
-# Ouput: torch.Tensor(batch, 192) (embedding size 192)
+# Input:  torch.Tensor(batch, 48,000)  ->  16 kHz, 3-second waveform
+# Output: torch.Tensor(batch, 192)     ->  192-dim speaker embedding
 ```
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1_zGof1NGM5WgZ5sJtQfsy1D7rKq9RwxR?usp=sharing)
