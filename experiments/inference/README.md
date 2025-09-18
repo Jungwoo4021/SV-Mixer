@@ -5,7 +5,7 @@ This example demonstrates how to use the pretrained **Small SV-Mixer** and **ECA
 ---
 
 ## 🚀 Open Colab
-Go to [Google Colab](https://colab.research.google.com/drive/1_zGof1NGM5WgZ5sJtQfsy1D7rKq9RwxR?usp=sharing) and see the 5-line example.
+Go to [Google Colab](https://colab.research.google.com/drive/1_zGof1NGM5WgZ5sJtQfsy1D7rKq9RwxR?usp=sharing) and see the 1-line example.
 
 ---
 
@@ -15,19 +15,15 @@ If you only want to use the pretrained models, you can easily load them with `to
 ```python
 import torch
 
-sv_mixer = torch.hub.load("Jungwoo4021/SV-Mixer", "small_svmixer", pretrained=True).eval()
-classifier = torch.hub.load("Jungwoo4021/SV-Mixer", "small_classifier", pretrained=True).eval()
-
-with torch.no_grad():
-    hidden_states = sv_mixer(input_wav)
-    embedding = classifier(hidden_states)
+model = torch.hub.load("Jungwoo4021/SV-Mixer", "large", pretrained=True)
+embedding = model(input_wav)
 ```
 
 ## 🔧 Model Selection
 
 Two pretrained SV-Mixer variants are provided:
 
-- **Small model** 
+- **Small model**
   - Torch hub KEY: `small_svmixer`, `small_classifier`
   - 5 layers  
   - Size: 33.0M parameters  

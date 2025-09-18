@@ -1,22 +1,26 @@
 [![Torch Hub](https://img.shields.io/badge/Supported-Torch%20Hub-orange?logo=pytorch)](https://colab.research.google.com/drive/1_zGof1NGM5WgZ5sJtQfsy1D7rKq9RwxR?usp=sharing)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1_zGof1NGM5WgZ5sJtQfsy1D7rKq9RwxR?usp=sharing)
 
 # SV-Mixer: MLP-based Transformer Alternative Architecture for Self-Supervised Model Compression in Speaker Verification
 
-> [📄 Paper: *SV-Mixer: Replacing the Transformer Encoder with Lightweight MLPs for Self-Supervised Model Compression in Speaker Verification*](./assets/paper.pdf)  
-> 📅 Conference: IEEE ASRU 2025 (accepted)  
+> [📄 Paper (PDF)↗](./assets/paper.pdf) | 📅 Conference: IEEE ASRU 2025 (accepted)  
 > 🚀 **Now available on [PyTorch Hub](https://colab.research.google.com/drive/1_zGof1NGM5WgZ5sJtQfsy1D7rKq9RwxR?usp=sharing)!**  
 > (Load pretrained **SV-Mixer** models in just one line of code)
 
 ---
 
-## 🚀 One-line Usage via Torch Hub
+## 🔥 Quick Start
+
+Load a pretrained SV-Mixer model in **one line**:
 
 ```python
-sv_mixer = torch.hub.load("Jungwoo4021/SV-Mixer", "large_svmixer", pretrained=True).eval()
-classifier = torch.hub.load("Jungwoo4021/SV-Mixer", "large_classifier", pretrained=True).eval()
-hidden_states = sv_mixer(input_wav)
-embedding = classifier(hidden_states)
+import torch
+model = torch.hub.load("Jungwoo4021/SV-Mixer", "large", pretrained=True)
+# Input: torch.Tensor(batch, 48,000) (16khz 3second waveform)
+# Ouput: torch.Tensor(batch, 192) (embedding size 192)
 ```
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1_zGof1NGM5WgZ5sJtQfsy1D7rKq9RwxR?usp=sharing)
 
 ## 🔍 Overview
 
@@ -54,7 +58,7 @@ This sequential flow enables strong generalization under compression.
 
 ---
 
-## 📊 Experimental Results
+## 📊 Results
 
 | Model        | Params/Layer | GMACs/Layer | Vox1-O EER | VoxSRC23 EER |
 |--------------|---------------|--------------|------------|---------------|
@@ -139,10 +143,10 @@ sv_mixer = torch.hub.load("Jungwoo4021/SV-Mixer", "small_svmixer", pretrained=Tr
   author    = {anonymous},
   journal   = {IEEE ASRU},
   year      = {2025},
-  note      = {Under Review}
+  note      = {to appear}
 }
 ```
 
 ## 🛡️ License
 
-This project is licensed under the MIT License – see the LICENSE file for details.
+This project is licensed under the MIT License
