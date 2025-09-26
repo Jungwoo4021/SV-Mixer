@@ -138,12 +138,15 @@ sv_mixer = torch.hub.load("Jungwoo4021/SV-Mixer", "small_svmixer", pretrained=Tr
 ## 📎 Citation
 
 ```bash
-@article{svmixer2025,
-  title     = {SV-Mixer: Replacing the Transformer Encoder with Lightweight MLPs for Self-Supervised Model Compression in Speaker Verification},
-  author    = {anonymous},
-  journal   = {IEEE ASRU},
-  year      = {2025},
-  note      = {to appear}
+@misc{heo2025svmixer,
+      title={SV-Mixer: Replacing the Transformer Encoder with Lightweight MLPs for Self-Supervised Model Compression in Speaker Verification}, 
+      author={Jungwoo Heo and Hyun-seo Shin and Chan-yeong Lim and Kyo-won Koo and Seung-bin Kim and Jisoo Son and Ha-Jin Yu},
+      year={2025},
+      eprint={2509.14136},
+      archivePrefix={arXiv},
+      primaryClass={eess.AS},
+      url={https://arxiv.org/abs/2509.14136}, 
+      note={Accepted to appear at ASRU 2025}
 }
 ```
 
