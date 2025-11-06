@@ -15,7 +15,7 @@ Load a pretrained SV-Mixer model in **one line**:
 
 ```python
 import torch
-model = torch.hub.load("Jungwoo4021/SV-Mixer", "large", pretrained=True)
+model = torch.hub.load("Jungwoo4021/SV-Mixer", "large", pretrained=True, pooling=True)
 # Input:  torch.Tensor(batch, 48,000)  ->  16 kHz, 3-second waveform
 # Output: torch.Tensor(batch, 192)     ->  192-dim speaker embedding
 ```
