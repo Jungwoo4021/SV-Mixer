@@ -45,7 +45,7 @@ class ECAPA_TDNN(nn.Module):
         
         self.gaussian = GaussianNoiseAug()
 
-    def forward(self, x):
+    def forward(self, x, pooling=True):
         """
         Args:
             x: hidden states from a transformer-based encoder.
@@ -75,19 +75,22 @@ class ECAPA_TDNN(nn.Module):
         x = self.layer4(x)
         x = self.relu(x)
 
-        # 4. ASP
-        time_steps = x.size(-1)
-        mean_stat = torch.mean(x, dim=2, keepdim=True).repeat(1, 1, time_steps)
-        std_stat = torch.sqrt(torch.var(x, dim=2, keepdim=True).clamp(min=1e-4)).repeat(1, 1, time_steps)
-        gx = torch.cat((x, mean_stat, std_stat), dim=1)
-        w = self.attention(gx)
-        mu = torch.sum(x * w, dim=2)
-        sg = torch.sqrt(torch.sum((x ** 2) * w, dim=2).sub(mu ** 2).clamp(min=1e-4))
+        if pooling:
+            # 4. ASP
+            time_steps = x.size(-1)
+            mean_stat = torch.mean(x, dim=2, keepdim=True).repeat(1, 1, time_steps)
+            std_stat = torch.sqrt(torch.var(x, dim=2, keepdim=True).clamp(min=1e-4)).repeat(1, 1, time_steps)
+            gx = torch.cat((x, mean_stat, std_stat), dim=1)
+            w = self.attention(gx)
+            mu = torch.sum(x * w, dim=2)
+            sg = torch.sqrt(torch.sum((x ** 2) * w, dim=2).sub(mu ** 2).clamp(min=1e-4))
 
-        # 5. Final embedding
-        x = torch.cat((mu, sg), dim=1)
-        x = self.bn5(x)
-        x = self.fc6(x)
-        final_embedding = self.bn6(x)
+            # 5. Final embedding
+            x = torch.cat((mu, sg), dim=1)
+            x = self.bn5(x)
+            x = self.fc6(x)
+            final_embedding = self.bn6(x)
 
-        return final_embedding
+            return final_embedding
+        else:
+            return x

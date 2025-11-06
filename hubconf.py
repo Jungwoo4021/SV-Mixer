@@ -10,18 +10,19 @@ from experiments.eval_only.test_code.models.ecapa import ECAPA_TDNN
 dependencies = ["torch", "torchvision"]
 
 class ModelWrapper(nn.Module):
-    def __init__(self, sv_mixer, classifier) -> None:
+    def __init__(self, sv_mixer, classifier, pooling=True) -> None:
         super().__init__()
 
         self.sv_mixer = sv_mixer
         self.classifier = classifier
+        self.pooling = pooling
 
     def forward(self, x):
         x = self.sv_mixer(x)
-        x = self.classifier(x)
+        x = self.classifier(x, pooling=self.pooling)
         return x
 
-def small(pretrained=False, **kwargs):
+def small(pretrained=False, pooling=True, **kwargs):
     """
     5 layers
     Size: 33.0M parameters
@@ -44,11 +45,11 @@ def small(pretrained=False, **kwargs):
         sv_mixer.load_state_dict(sv_mixer_ckpt)
         ecapa.load_state_dict(ecapa_ckpt)
 
-    model = ModelWrapper(sv_mixer, ecapa)
+    model = ModelWrapper(sv_mixer, ecapa, pooling=pooling)
     
     return model
 
-def large(pretrained=False, **kwargs):
+def large(pretrained=False, pooling=True, **kwargs):
     """
     17 layers
     Size: 80.0M
@@ -71,6 +72,6 @@ def large(pretrained=False, **kwargs):
         sv_mixer.load_state_dict(sv_mixer_ckpt)
         ecapa.load_state_dict(ecapa_ckpt)
 
-    model = ModelWrapper(sv_mixer, ecapa)
+    model = ModelWrapper(sv_mixer, ecapa, pooling=pooling)
     
     return model
